@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>EchoCheck · Mood Screening Demo (Student Project)</title>
+<meta name="description" content="EchoCheck — an anonymous, bilingual, web-based preliminary emotional screening demo for Hong Kong secondary students (Secondary 1–6). Student project demo only: NOT clinical diagnosis or therapy." />
+<!-- Publishing safety: this artefact must never be indexed or archived as if it
+     were a real service. If it ever goes online, keep these two tags. -->
+<meta name="robots" content="noindex, nofollow, noarchive, nosnippet" />
+<meta name="googlebot" content="noindex, nofollow, noarchive" />
+<link rel="stylesheet" href="styles.css" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23e4eef7'/%3E%3Ctext x='16' y='22' font-size='18' text-anchor='middle' fill='%232f6699' font-family='sans-serif'%3E%EF%B8%89%3C/text%3E%3C/svg%3E" />
+</head>
+<body>
+
+<!-- ===================== BLOCK 1 : fixed disclaimer bar ===================== -->
+<header class="topbar">
+  <div class="brand">
+    <div class="brand-mark" aria-hidden="true">🫧</div>
+    <div>
+      <div class="brand-name">EchoCheck</div>
+      <div class="brand-sub" data-i18n="brandSub"></div>
+    </div>
+  </div>
+
+  <div class="disclaimer" id="disclaimer" role="note" aria-live="polite"></div>
+
+  <div class="demo-pill" id="demoPill" role="note" data-i18n="demoPill"></div>
+
+  <div class="lang-toggle" role="group" aria-label="Language">
+    <button class="lang-btn" id="btnEn" type="button" aria-pressed="true">English</button>
+    <button class="lang-btn" id="btnZh" type="button" aria-pressed="false">繁體中文</button>
+  </div>
+</header>
+
+<!-- ===================== main 3-column layout ===================== -->
+<main class="layout">
+
+  <!-- BLOCK 2 : static About panel -->
+  <aside class="panel" aria-label="About EchoCheck">
+    <div class="panel-head">
+      <h2 data-i18n="aboutTitle"></h2>
+      <p data-i18n="aboutSub"></p>
+    </div>
+    <div class="panel-body" id="aboutBody"><!-- rendered by app.js --></div>
+  </aside>
+
+  <!-- BLOCK 3 : interactive screening conversation -->
+  <section class="panel chat" aria-label="EchoCheck screening">
+    <div class="panel-head">
+      <h2 data-i18n="chatTitle"></h2>
+      <p data-i18n="chatSub"></p>
+    </div>
+
+    <div class="chat-body" id="thread" aria-live="polite"></div>
+
+    <div class="composer">
+      <div class="chips" id="chips"></div>
+      <div class="inputrow">
+        <textarea id="input" rows="2" data-i18n-attr="placeholder:inputPh"></textarea>
+        <div class="send-wrap">
+          <button class="btn" id="btnStop" type="button" data-i18n="btnStop"></button>
+          <button class="btn primary" id="btnSend" type="button" data-i18n="btnSend"></button>
+        </div>
+      </div>
+      <div class="hint" id="composerHint"></div>
+    </div>
+  </section>
+
+  <!-- BLOCK 4 : school social worker dashboard (aggregated, simulated) -->
+  <aside class="panel" aria-label="School social worker dashboard">
+    <div class="panel-head">
+      <h2 data-i18n="dashTitle"></h2>
+      <p data-i18n="dashNote"></p>
+    </div>
+    <div class="panel-body" id="dashBody"><!-- rendered by app.js --></div>
+  </aside>
+</main>
+
+<!-- ===================== BLOCK 5 : fixed bottom resources ===================== -->
+<footer class="footer" id="resources">
+  <h3 data-i18n="resTitle"></h3>
+  <div id="resList" style="display:flex;flex-wrap:wrap;gap:10px 16px;"></div>
+  <div class="sim" data-i18n="resSim"></div>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>
